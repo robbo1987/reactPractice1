@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script
+      src="https://unpkg.com/react@17/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            count: 0,
+            countA: 0,
+          };
+        }
+        render() {
+          const count = this.state.count;
+          const countA = this.state.countA;
+          return (
+            <div>
+              <h1>
+                {" "}
+                Robby Yelled {count} times at Debra and {countA} times a
+                Wrigley!
+              </h1>
+              <div>{new Array(countA).fill("!").join("")}</div>
+              <button
+                onClick={() =>
+                  this.setState({ count: count + 1, countA: countA + 2 })
+                }
+              >
+                {" "}
+                YELL !!
+              </button>
+            </div>
+          );
+        }
+      }
+      const root = document.querySelector("#root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
